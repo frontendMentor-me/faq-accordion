@@ -1,0 +1,211 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+
+:root {
+    /* -- Text -- */
+    --veryDarkDBlue: hsl(238, 29%, 16%);
+    --softRed: hsl(14, 88%, 65%);
+    /* -- Gradient -- */
+    --softViolet: hsl(273, 75%, 66%);
+    --softBlue: hsl(240, 73%, 65%);
+    /* -- Text -- */
+    --veryDarkGBlue: hsl(237, 12%, 33%);
+    --darkGrayishBlue: hsl(240, 6%, 50%);
+    /* -- Dividers -- */
+    --lightGrayishBlue: hsl(240, 5%, 91%);
+    /* -- Font -- */
+    --fSize: 12px;
+    --fKumbh: "Kumbh Sans", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--fKumbh);
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(var(--softViolet), var(--softBlue));
+}
+
+body main {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+    padding: 25px;
+    height: 600px;
+    width: 1050px;
+    overflow: hidden;
+}
+
+main .card-image {
+    height: 500px;
+    width: 500px;
+    padding: 20px;
+    position: relative;
+}
+main .card-image img {
+    position: absolute;
+    z-index: 1;
+}
+main .card-image picture:nth-child(1) img {
+    top: -130px;
+    left: -450px;
+    transform: scale(1.85);
+    height: 600px;
+    width: 600px;
+}
+main .card-image picture:nth-child(2) img {
+    transform: scale(1.05);
+    top: 60px;
+    left: -125px;
+    width: 520px;
+}
+
+main .box {
+    position: absolute;
+    top: 46.5%;
+    left: 23.3%;
+    transform: scale(1.1) translateX(-50%);
+    z-index: 99999;
+}
+main .card-description {
+    padding-top: 30px;
+    padding-right: 80px;
+    align-self: flex-start;
+}
+main .card-description .accordions .accordion {
+    height: 60px;
+    width: 400px;
+    padding: 5px;
+    border-bottom: 1px solid var(--lightGrayishBlue);
+    transition: 0.5s all;
+}
+main .card-description .accordions .accordion:hover {
+    cursor: pointer;
+}
+main .card-description .accordions .accordion:hover .accordion-title p {
+    color: var(--softRed);
+}
+main .card-description .accordions .accordion .accordion-detail {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.5s all;
+}
+.accordion-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
+.card-description h1 {
+    padding: 20px 15px;
+}
+
+.accordion-title p {
+    color: var(--veryDarkDBlue);
+}
+
+.accordion-title img {
+    height: 10px;
+    padding-right: 5px;
+    transition: 0.5s all;
+}
+.accordion-detail p {
+    font-size: 14px;
+    color: var(--darkGrayishBlue);
+    font-weight: 400;
+    line-height: 25px;
+}
+
+/*Open*/
+main .card-description .accordions .open {
+    height: 140px;
+}
+
+main .card-description .accordions .open .accordion-title p {
+    font-weight: 700;
+    color: var(--veryDarkDBlue);
+}
+main .card-description .accordions .open .accordion-title img {
+    transform: rotate(180deg);
+}
+
+main .card-description .accordions .open .accordion-detail {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 1440px) {
+    main .box {
+        position: absolute;
+        top: 46.2%;
+        left: 14.5%;
+        transform: scale(1.1) translateX(-50%);
+        z-index: 99999;
+    }
+}
+
+@media (max-width: 375px) {
+    body main {
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 20px;
+        width: 340px;
+        height: 550px;
+    }
+    main .card-image {
+        width: 100%;
+        position: unset;
+    }
+    main .card-image picture:nth-child(1) img {
+        top: 155px;
+        left: 50%;
+        transform: scale(1) translateX(-50%);
+        height: 120px;
+        width: 270px;
+    }
+    main .card-image picture:nth-child(2) img {
+        width: 270px;
+        top: 30px;
+        left: 50%;
+
+        transform: scale(1) translateX(-50%);
+    }
+
+    body main .box {
+        position: absolute;
+        transform: scale(0.6);
+        top: 67px;
+        left: 7px;
+    }
+    main .card-description {
+        padding: 0;
+        padding-bottom: 20px;
+        justify-self: flex-start;
+    }
+    .card-description h1 {
+        padding: 20px 0;
+        text-align: center;
+    }
+    main .card-description .accordions {
+        width: 100%;
+    }
+    main .card-description .accordions .accordion {
+        width: 100%;
+    }
+    .accordion-title p {
+        font-size: 14px;
+    }
+    .accordion-detail p {
+        padding-right: 30px;
+    }
+}
